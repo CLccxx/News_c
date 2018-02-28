@@ -26,6 +26,8 @@
 		6BEF774A204697840070959E /* activity2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6BEF7730204697830070959E /* activity2.plist */; };
 		6BEF774B204697840070959E /* settingPlist.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6BEF7731204697830070959E /* settingPlist.plist */; };
 		6BEF774C204697840070959E /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6BEF7732204697830070959E /* Info.plist */; };
+		6BEF774E204699DE0070959E /* libz.1.2.8.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BEF774D204699DE0070959E /* libz.1.2.8.tbd */; };
+		6BEF7750204699EC0070959E /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BEF774F204699EC0070959E /* libsqlite3.0.tbd */; };
 		FCE47BF9BBE96FB35F1B64C9 /* Pods_News_c.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82D9418EEA94A7946996CE68 /* Pods_News_c.framework */; };
 /* End PBXBuildFile section */
 
@@ -73,6 +75,8 @@
 		6BEF7730204697830070959E /* activity2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = activity2.plist; sourceTree = "<group>"; };
 		6BEF7731204697830070959E /* settingPlist.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = settingPlist.plist; sourceTree = "<group>"; };
 		6BEF7732204697830070959E /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6BEF774D204699DE0070959E /* libz.1.2.8.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.1.2.8.tbd; path = usr/lib/libz.1.2.8.tbd; sourceTree = SDKROOT; };
+		6BEF774F204699EC0070959E /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		82D9418EEA94A7946996CE68 /* Pods_News_c.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_News_c.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F5560AE19C4D7F5D37A66C2 /* Pods-News_c.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-News_c.debug.xcconfig"; path = "Pods/Target Support Files/Pods-News_c/Pods-News_c.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -82,6 +86,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6BEF7750204699EC0070959E /* libsqlite3.0.tbd in Frameworks */,
+				6BEF774E204699DE0070959E /* libz.1.2.8.tbd in Frameworks */,
 				FCE47BF9BBE96FB35F1B64C9 /* Pods_News_c.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -420,6 +426,8 @@
 		B4D5B859D9185E0E9B32F7B9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6BEF774F204699EC0070959E /* libsqlite3.0.tbd */,
+				6BEF774D204699DE0070959E /* libz.1.2.8.tbd */,
 				82D9418EEA94A7946996CE68 /* Pods_News_c.framework */,
 			);
 			name = Frameworks;
