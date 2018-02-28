@@ -28,6 +28,13 @@
 		6BEF774C204697840070959E /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6BEF7732204697830070959E /* Info.plist */; };
 		6BEF774E204699DE0070959E /* libz.1.2.8.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BEF774D204699DE0070959E /* libz.1.2.8.tbd */; };
 		6BEF7750204699EC0070959E /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BEF774F204699EC0070959E /* libsqlite3.0.tbd */; };
+		6BEF775420469BA30070959E /* MyTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BEF775320469BA30070959E /* MyTabBarController.swift */; };
+		6BEF77562046A00C0070959E /* MyNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BEF77552046A00C0070959E /* MyNavigationController.swift */; };
+		6BEF77582046AE180070959E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BEF77572046AE180070959E /* HomeViewController.swift */; };
+		6BEF775A2046AE290070959E /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BEF77592046AE290070959E /* VideoViewController.swift */; };
+		6BEF775C2046AE460070959E /* RedPackageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BEF775B2046AE460070959E /* RedPackageViewController.swift */; };
+		6BEF775E2046AF700070959E /* WeitoutiaoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BEF775D2046AF700070959E /* WeitoutiaoViewController.swift */; };
+		6BEF77602046AF810070959E /* HuoshanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BEF775F2046AF810070959E /* HuoshanViewController.swift */; };
 		FCE47BF9BBE96FB35F1B64C9 /* Pods_News_c.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82D9418EEA94A7946996CE68 /* Pods_News_c.framework */; };
 /* End PBXBuildFile section */
 
@@ -77,6 +84,13 @@
 		6BEF7732204697830070959E /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6BEF774D204699DE0070959E /* libz.1.2.8.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.1.2.8.tbd; path = usr/lib/libz.1.2.8.tbd; sourceTree = SDKROOT; };
 		6BEF774F204699EC0070959E /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		6BEF775320469BA30070959E /* MyTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTabBarController.swift; sourceTree = "<group>"; };
+		6BEF77552046A00C0070959E /* MyNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyNavigationController.swift; sourceTree = "<group>"; };
+		6BEF77572046AE180070959E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		6BEF77592046AE290070959E /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
+		6BEF775B2046AE460070959E /* RedPackageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedPackageViewController.swift; sourceTree = "<group>"; };
+		6BEF775D2046AF700070959E /* WeitoutiaoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeitoutiaoViewController.swift; sourceTree = "<group>"; };
+		6BEF775F2046AF810070959E /* HuoshanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HuoshanViewController.swift; sourceTree = "<group>"; };
 		82D9418EEA94A7946996CE68 /* Pods_News_c.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_News_c.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F5560AE19C4D7F5D37A66C2 /* Pods-News_c.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-News_c.debug.xcconfig"; path = "Pods/Target Support Files/Pods-News_c/Pods-News_c.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -198,6 +212,7 @@
 		6BEF7715204697830070959E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				6BEF77572046AE180070959E /* HomeViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -229,6 +244,7 @@
 		6BEF7719204697830070959E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				6BEF77592046AE290070959E /* VideoViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -260,6 +276,7 @@
 		6BEF771D204697830070959E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				6BEF775B2046AE460070959E /* RedPackageViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -290,6 +307,7 @@
 		6BEF7721204697830070959E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				6BEF775F2046AF810070959E /* HuoshanViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -304,16 +322,16 @@
 		6BEF7723204697830070959E /* Others */ = {
 			isa = PBXGroup;
 			children = (
+				6BEF772E204697830070959E /* AppDelegate.swift */,
+				6BEF772F204697830070959E /* Const.swift */,
+				6BEF7729204697830070959E /* Theme */,
 				6BEF7724204697830070959E /* activity_main_mahjong_start_guide.json */,
 				6BEF7725204697830070959E /* emoji_sort.plist */,
 				6BEF7726204697830070959E /* activity.plist */,
 				6BEF7727204697830070959E /* shengxiao.plist */,
 				6BEF7728204697830070959E /* activity_main_head_white.json */,
-				6BEF7729204697830070959E /* Theme */,
 				6BEF772C204697830070959E /* emoji_mapping.plist */,
 				6BEF772D204697830070959E /* emojis.plist */,
-				6BEF772E204697830070959E /* AppDelegate.swift */,
-				6BEF772F204697830070959E /* Const.swift */,
 				6BEF7730204697830070959E /* activity2.plist */,
 				6BEF7731204697830070959E /* settingPlist.plist */,
 				6BEF7732204697830070959E /* Info.plist */,
@@ -389,6 +407,8 @@
 		6BEF773A204697830070959E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				6BEF775320469BA30070959E /* MyTabBarController.swift */,
+				6BEF77552046A00C0070959E /* MyNavigationController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -412,6 +432,7 @@
 		6BEF773D204697830070959E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				6BEF775D2046AF700070959E /* WeitoutiaoViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -668,8 +689,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				6BEF7748204697840070959E /* AppDelegate.swift in Sources */,
+				6BEF775E2046AF700070959E /* WeitoutiaoViewController.swift in Sources */,
+				6BEF775A2046AE290070959E /* VideoViewController.swift in Sources */,
+				6BEF775420469BA30070959E /* MyTabBarController.swift in Sources */,
 				6BEF76EB204697380070959E /* News_c.xcdatamodeld in Sources */,
+				6BEF77562046A00C0070959E /* MyNavigationController.swift in Sources */,
 				6BEF7749204697840070959E /* Const.swift in Sources */,
+				6BEF77602046AF810070959E /* HuoshanViewController.swift in Sources */,
+				6BEF77582046AE180070959E /* HomeViewController.swift in Sources */,
+				6BEF775C2046AE460070959E /* RedPackageViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
