@@ -30,6 +30,7 @@ let kMyHeaderViewHeight: CGFloat = 280
 let kUserDetailHeaderBGImageViewHeight: CGFloat = 146
 
 let isNight = "isNight"
+let imageFooter = (UserDefaults.standard.bool(forKey: isNight) ? "_night" : "")
 /// 关注的用户详情界面 topTab 的按钮的宽度
 let topTabButtonWidth: CGFloat = screenWidth * 0.2
 /// 关注的用户详情界面 topTab 的指示条的宽度 和 高度

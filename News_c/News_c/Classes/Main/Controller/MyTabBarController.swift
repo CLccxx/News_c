@@ -30,16 +30,20 @@ class MyTabBarController: UITabBarController {
         super.didReceiveMemoryWarning()
         
     }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
 
 }
 
 extension MyTabBarController {
     // 添加子控制器
-    func addChildViewController() -> Void {
+    private func addChildViewController() -> Void {
         // 这里利用图片的差异将中间凸显出来，图片大小相同但是其他四个图片图标较小，周边空白较大
         setChildViewController(HomeViewController(), title: "首页", imageName: "home")
         setChildViewController(VideoViewController(), title: "西瓜视频", imageName: "video")
-        setChildViewController(RedPackageViewController(), title: "redpackage", imageName: "")
+        setChildViewController(RedPackageViewController(), title: "", imageName: "redpackage")
         setChildViewController(WeitoutiaoViewController(), title: "微头条", imageName: "weitoutiao")
         setChildViewController(HuoshanViewController(), title: "小视频", imageName: "huoshan")
         // tabBar 是 readonly属性，不能直接修改，利用KVC 将readonly属性修改过来
@@ -48,7 +52,7 @@ extension MyTabBarController {
     }
     
     // 设置子控制器
-    func setChildViewController(_ childController : UIViewController ,title: String , imageName : String) -> Void {
+    private func setChildViewController(_ childController : UIViewController ,title: String , imageName : String) -> Void {
         // 设置tabbar 文字和图片
         if UserDefaults.standard.bool(forKey: isNight) {
             setNightChildController(controller: childController, imageName: imageName)
@@ -72,4 +76,5 @@ extension MyTabBarController {
         controller.tabBarItem.image = UIImage.init(named: imageName + "_tabbar_32x32_")
         controller.tabBarItem.selectedImage = UIImage.init(named: imageName + "_tabbar_press_32x32_")
     }
+    
 }

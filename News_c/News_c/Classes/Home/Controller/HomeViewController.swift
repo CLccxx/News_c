@@ -7,29 +7,75 @@
 //
 
 import UIKit
+import SGPagingView
+import RxSwift
+import RxCocoa
 
 class HomeViewController: UIViewController {
 
+    // disposeBag
+    private lazy var disposeBag = DisposeBag()
+    
+    // 标题和内容
+    private var pageTitleView : SGPageTitleView?
+    private var pageContentView : SGPageContentView?
+    
+    // 从xib加载自定义导航栏
+    private lazy var navigationBar = HomeNavigationView.loadViewFromNib()
+    
+    // 添加频道按钮
+    private lazy var addChannelButton : UIButton = {
+        let addChannelButton = UIButton(frame: CGRect(x: screenWidth - newsTitleHeight, y: 0, width: newsTitleHeight, height: newsTitleHeight))
+        addChannelButton.theme_setImage("images.add_channel_titlbar_thin_new_16x16_", forState: .normal)
+        
+        let separatorView = UIView(frame: CGRect(x: 0, y: newsTitleHeight - 1, width: newsTitleHeight, height: newsTitleHeight))
+        separatorView.theme_backgroundColor = "colors.separatorViewColor"
+        addChannelButton.addSubview(separatorView)
+        
+        return addChannelButton
+        
+    }()
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        UIApplication.shared.keyWindow?.theme_backgroundColor = "colors.windowColor"
+        // 设置状态栏属性
+        navigationController?.navigationBar.barStyle = .black
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+    navigationController?.navigationBar.setBackgroundImage(UIImage.init(named: "navigation_background" + imageFooter), for: .default)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        // 设置UI
+        setupUI()
+        // 点击事件
+        clickAction()
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
+
+// MARK :- 导航栏按钮点击
+extension HomeViewController {
+    // 设置UI
+    private func setupUI() {
+        view.theme_backgroundColor = "colors.cellBackgroundColor"
+        // 设置自定义导航栏
+        navigationItem.titleView = navigationBar
+        // 添加频道
+        view.addSubview(addChannelButton)
+        
+    }
+    
+    private func clickAction() {
+        
+    }
+}
+
