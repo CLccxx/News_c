@@ -52,7 +52,6 @@ class HomeViewController: UIViewController {
         setupUI()
         // 点击事件
         clickAction()
-        
     }
 
     override func didReceiveMemoryWarning() {
