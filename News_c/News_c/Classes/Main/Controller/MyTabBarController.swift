@@ -23,9 +23,55 @@ class MyTabBarController: UITabBarController {
         
         // 添加子控制器
         addChildViewController()
+        // 添加日夜间切换通知
+        NotificationCenter.default.addObserver(self, selector: #selector(receiveDayOrNightButtonClicked), name: NSNotification.Name(rawValue: "dayOrNightButtonClicked"), object: nil)
         
     }
 
+    // 接受到日夜间切换按钮点击通知
+    @objc private func receiveDayOrNightButtonClicked(notification: NSNotification) -> Void {
+        let selector = notification.object as! Bool
+        if selector { // 设置为夜间模式
+            for childController in childViewControllers {
+                switch childController.title! {
+                case "首页" :
+                    setNightChildController(controller: childController, imageName: "home")
+                case "西瓜视频" :
+                    setNightChildController(controller: childController, imageName: "video")
+                case "小视频" :
+                    setNightChildController(controller: childController, imageName: "huoshan")
+                case "微头条" :
+                    setNightChildController(controller: childController, imageName: "weitoutiao")
+                case "" :
+                    setNightChildController(controller: childController, imageName: "redpackage")
+                    
+                default:
+                    break
+                }
+                
+            }
+        }else {
+            for childController in childViewControllers {
+                switch childController.title! {
+                case "首页" :
+                    setDayChildController(controller: childController, imageName: "home")
+                case "西瓜视频" :
+                    setDayChildController(controller: childController, imageName: "video")
+                case "小视频" :
+                    setDayChildController(controller: childController, imageName: "huoshan")
+                case "微头条" :
+                    setDayChildController(controller: childController, imageName: "weitoutiao")
+                case "" :
+                    setDayChildController(controller: childController, imageName: "redpackage")
+                    
+                default:
+                    break
+                }
+            }
+        }
+        
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         
@@ -53,7 +99,7 @@ extension MyTabBarController {
     
     // 设置子控制器
     private func setChildViewController(_ childController : UIViewController ,title: String , imageName : String) -> Void {
-        // 设置tabbar 文字和图片
+        // 设置tabbar 文字和图片 查看本地保存的日间或夜间模式
         if UserDefaults.standard.bool(forKey: isNight) {
             setNightChildController(controller: childController, imageName: imageName)
         }else{

@@ -70,7 +70,49 @@ extension HomeViewController {
         navigationItem.titleView = navigationBar
         // 添加频道
         view.addSubview(addChannelButton)
-        
+        // 首页顶部新闻标题的数据
+        NetworkTool.loadHomeNewsTitleData {
+            // 向数据库中插入数据 $0表示第一个参数
+            NewsTitleTable().insert($0)
+            let configuration = SGPageTitleViewConfigure()
+            configuration.titleColor = UIColor.black
+            configuration.titleSelectedColor = UIColor.globalRedColor()
+            configuration.indicatorColor = UIColor.clear
+            // 标题名称的数组
+            let titleViewRect = CGRect(x: 0, y: 0, width: screenWidth - newsTitleHeight, height: newsTitleHeight)
+            self.pageTitleView = SGPageTitleView(frame: titleViewRect, delegate: self, titleNames: $0.flatMap({ $0.name }), configure: configuration)
+            self.pageTitleView!.backgroundColor = UIColor.clear
+            self.view.addSubview(self.pageTitleView!)
+            // 设置子控制器
+            $0.flatMap({ (newsTitle) -> () in
+                switch newsTitle.category {
+                
+                // TODO: 添加子控制器
+                case .video: // 视频
+                    
+                    break
+                case .essayJoke: // 段子
+                    break
+                case .imagePPMM: // 街拍
+                    break
+                case .imageFunny: // 趣图
+                    break
+                case .photos: // 图片，组图
+                    break
+                case .jinritemai: // 特卖
+                    break
+                default : // 其他
+                    
+                    break
+                }
+            })
+            
+            // 视图内容
+            let contentViewRect = CGRect(x: 0, y: newsTitleHeight, width: screenWidth, height: self.view.height - newsTitleHeight)
+            self.pageContentView = SGPageContentView(frame: contentViewRect, parentVC: self, childVCs: self.childViewControllers)
+            self.pageContentView!.delegatePageContentView = self
+            self.view.addSubview(self.pageContentView!)
+        }
     }
     
     private func clickAction() {
@@ -78,3 +120,15 @@ extension HomeViewController {
     }
 }
 
+// MARK :- SGPageTitleViewDelegate
+extension HomeViewController : SGPageTitleViewDelegate, SGPageContentViewDelegate {
+    // 联动pageContent的方法
+    func pageTitleView(_ pageTitleView: SGPageTitleView!, selectedIndex: Int) {
+        self.pageContentView!.setPageCententViewCurrentIndex(selectedIndex)
+    }
+    
+    // 联动SGPageTitleView的方法
+    func pageContentView(_ pageContentView: SGPageContentView!, progress: CGFloat, originalIndex: Int, targetIndex: Int) {
+        self.pageTitleView!.setPageTitleViewWithProgress(progress, originalIndex: originalIndex, targetIndex: targetIndex)
+    }
+}
