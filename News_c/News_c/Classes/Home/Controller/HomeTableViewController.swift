@@ -17,7 +17,7 @@ class HomeTableViewController: UITableViewController {
 //    lazy var player: BMPlayer = BMPlayer(customControlView: )
     
     // 标题
-    
+    var nswsTitle = HomeNewsTitle()
     // 新闻数据
 //    var news = []
     
@@ -27,14 +27,22 @@ class HomeTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+//        SVProgressHUD.configuration()
+        
     }
 
+    // 设置刷新控件
+    func setupRefresh(with category: NewsTitleCategory = .recommend) -> Void {
+        // 刷新头部
+        let header = RefreshHeader{ [weak self] in
+            // 获取视频的新闻列表数据
+            
+            
+        }
+    }
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
