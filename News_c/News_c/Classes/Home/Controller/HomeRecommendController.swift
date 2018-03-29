@@ -1,48 +1,23 @@
 //
-//  HomeTableViewController.swift
+//  HomeRecommendController.swift
 //  News_c
 //
-//  Created by 杨博兴 on 2018/3/27.
+//  Created by 杨博兴 on 2018/3/29.
 //  Copyright © 2018年 xx_cc. All rights reserved.
 //
 
-// 作为首页其他不同新闻类别的控制器的父控制器
 import UIKit
-import SVProgressHUD
-import BMPlayer
 
-class HomeTableViewController: UITableViewController {
-    
-    // 播放器
-//    lazy var player: BMPlayer = BMPlayer(customControlView: )
-    
-    // 标题
-    var newsTitle = HomeNewsTitle()
-    // 新闻数据
-//    var news = []
-    
-    // 刷新时间
-    var maxBehotTime: TimeInterval = 0.0
-    
-    
+class HomeRecommendController: HomeTableViewController {
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        SVProgressHUD.configuration()
+        // 注册推荐的cell
+        
         
     }
 
-    // 设置刷新控件
-    func setupRefresh(with category: NewsTitleCategory = .recommend) -> Void {
-        // 刷新头部
-        let header = RefreshHeader{ [weak self] in
-            // 获取视频的新闻列表数据，加载更多
-            
-            
-        }
-    }
-    
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

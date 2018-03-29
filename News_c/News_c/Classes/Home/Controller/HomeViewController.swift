@@ -89,7 +89,10 @@ extension HomeViewController {
                 
                 // TODO: 添加子控制器
                 case .video: // 视频
-                    
+                    let videoTableVC = VideoTableViewController()
+                    videoTableVC.newsTitle = newsTitle
+                    videoTableVC.setupRefresh(with: .video)
+                    self.addChildViewController(videoTableVC)
                     break
                 case .essayJoke: // 段子
                     break

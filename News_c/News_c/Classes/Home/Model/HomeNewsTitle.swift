@@ -9,7 +9,7 @@
 import UIKit
 import HandyJSON
 
-// swift 中 结构体用来
+// swift 中 结构体用来充当model，轻量级。
 struct HomeNewsTitle: HandyJSON {
     
     var category: NewsTitleCategory = .recommend

@@ -21,5 +21,6 @@ target 'News_c' do
   pod 'FDFullscreenPopGesture'
   # pod 'Texture'
   pod 'lottie-ios'
+  pod 'SnapKit', '~> 4.0.0'
 
 end
