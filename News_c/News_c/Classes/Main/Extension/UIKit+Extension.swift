@@ -34,6 +34,42 @@ extension NibLoadable {
     
 }
 
+// MARK :- 注册cell的协议
+protocol RegisterCellFromNib {
+    
+}
+// MARK :- 利用扩展实现协议
+extension RegisterCellFromNib {
+    
+    // 协议提供了两个参数
+    // 非xib加载的identifier
+    static var identifier : String {
+        return "\(self)"
+    }
+    
+    // xib加载的nib
+    static var nib: UINib? {
+        return UINib(nibName: "\(self)", bundle: nil)
+    }
+}
+
+extension UITableView {
+    // 注册cell的方法
+    // cell 参数 需要是 UITableViewCell类型或子类并且遵守了 RegisterCellFromNib
+    func cl_registerCell<T: UITableViewCell>(cell: T.Type) where T: RegisterCellFromNib {
+        // 如果nib有值说明是使用xib加载的，否则则是纯代码加载
+        if let nib = T.nib {
+            register(nib, forCellReuseIdentifier: T.identifier)
+        }else {
+            register(cell, forCellReuseIdentifier: T.identifier)
+        }
+    }
+    
+    // 从缓存池中取出已经存在的cell
+    func cl_dequeueReusableCell<T: UITableViewCell>(indexPath: IndexPath) -> T where T: RegisterCellFromNib {
+        return dequeueReusableCell(withIdentifier: T.identifier, for: indexPath) as! T
+    }
+}
 
 extension UIView {
     

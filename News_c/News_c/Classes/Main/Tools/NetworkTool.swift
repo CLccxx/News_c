@@ -17,6 +17,13 @@ protocol NetworkToolProtocol {
     
     // MARK: 首页顶部导航栏搜索推荐标题内容
     static func loadHomeSearchSuggestInfo(_ completionHandler : @escaping (_ searchSuggest : String) -> ())
+    
+    // MARK: 获取首页、视频、小视频的新闻列表数据
+    // - parameter category: 新闻类别
+    // - parameter ttFrom : 那个界面
+    // - parameter completionHandler: 返回新闻列表数据
+    // - parameter news: 首页新闻数据
+    static func loadApiNewsFeeds(category: NewsTitleCategory, ttFrom: TTFrom, _ completionHandler : @escaping (_ maxBehotTime : TimeInterval, _ news: [NewsModel]) -> ())
 }
 
 extension NetworkToolProtocol {
@@ -45,6 +52,37 @@ extension NetworkToolProtocol {
         
         AlamofireHelpTool.getJSONDataDictWith(url: url, parameters: params) { (dataDict) in
             completionHandler(dataDict["homepage_search_suggest"]!.string!)
+        }
+    }
+    
+    // MARK: 获取首页、视频、小视频的新闻列表数据
+    // - parameter category: 新闻类别
+    // - parameter ttFrom : 那个界面
+    // - parameter completionHandler: 返回新闻列表数据
+    // - parameter news: 首页新闻数据
+    static func loadApiNewsFeeds(category: NewsTitleCategory, ttFrom: TTFrom, _ completionHandler : @escaping (_ maxBehotTime : TimeInterval, _ news: [NewsModel]) -> ()) {
+        // 下拉刷新的时间
+        let pullTime = Date().timeIntervalSince1970
+        let url = BASE_URL + "/api/news/feed/v75/?"
+        let params = ["device_id": device_id,
+                      "count": 20,
+                      "list_count": 15,
+                      "category": category.rawValue,
+                      "min_behot_time": pullTime,
+                      "strict": 0,
+                      "detail": 1,
+                      "refresh_reason": 1,
+                      "tt_from": ttFrom,
+                      "iid": iid] as [String: Any]
+        Alamofire.request(url, parameters: params).responseJSON { (response) in
+            // 网络错误的提示信息
+            guard response.result.isSuccess else { return }
+            if let value = response.result.value {
+                let json = JSON(value)
+                guard json["message"] == "success" else { return }
+                guard let datas = json["data"].array else { return }
+                completionHandler(pullTime, datas.flatMap({ NewsModel.deserialize(from: $0["content"].string) }))
+            }
         }
     }
 }
