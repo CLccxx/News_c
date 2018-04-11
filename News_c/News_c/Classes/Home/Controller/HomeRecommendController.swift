@@ -14,7 +14,7 @@ class HomeRecommendController: HomeTableViewController {
         super.viewDidLoad()
         
         // 注册推荐的cell
-        
+        tableView.cl_registerCell(cell: HomeUserCell.self)
         
     }
 
