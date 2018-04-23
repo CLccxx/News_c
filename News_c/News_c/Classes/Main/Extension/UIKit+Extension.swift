@@ -71,6 +71,37 @@ extension UITableView {
     }
 }
 
+extension UICollectionView {
+    // 注册cell的方法
+    func cl_registerCell<T: UICollectionView>(cell : T.Type) where T: RegisterCellFromNib {
+        if let nib = T.nib {
+            register(nib, forCellWithReuseIdentifier: T.identifier)
+        }else{
+            register(cell, forCellWithReuseIdentifier: T.identifier)
+        }
+    }
+    // 从缓存池中取出已经存在的 cell
+    func cl_deququeReusableCell<T: UICollectionViewCell>(indexPath: IndexPath) -> T where T : RegisterCellFromNib {
+        return dequeueReusableCell(withReuseIdentifier: T.identifier, for: indexPath) as! T
+    }
+    
+    // 注册头部
+    func cl_registerSupplementaryHeaderView<T: UICollectionReusableView>(reusableView: T.Type) where T : RegisterCellFromNib {
+        // T遵守了 RegisterCellorNib协议，所以通过T 就能取出identifier这个属性
+        if let nib = T.nib {
+            register(nib, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: T.identifier)
+        } else {
+            register(reusableView, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: T.identifier)
+        }
+    }
+    
+    // 获取可重用头部
+    func cl_dequequeReusableSupplementaryHeaderView<T: UICollectionReusableView>(indexPath:IndexPath) -> T where T : RegisterCellFromNib {
+        return dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: T.identifier, for: indexPath) as! T
+    }
+    
+}
+
 extension UIView {
     
     /// x
